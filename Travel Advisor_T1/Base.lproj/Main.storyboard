@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UYb-dN-Af0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wi4-EU-nhV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -439,9 +439,28 @@
                                 </segments>
                                 <color key="tintColor" red="0.0039570229130000004" green="0.57262128590000005" blue="0.30149054530000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="segment:" destination="wi4-EU-nhV" eventType="valueChanged" id="QcV-mn-FEg"/>
+                                    <action selector="visionStyleSelection:" destination="wi4-EU-nhV" eventType="valueChanged" id="eRl-Ul-OHq"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLN-Lt-xLE">
+                                <rect key="frame" x="10" y="34" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="1P8-Ve-ou6"/>
+                                    <constraint firstAttribute="height" constant="64" id="IgN-EM-7Ge"/>
+                                </constraints>
+                                <state key="normal" image="LocationOff"/>
+                                <connections>
+                                    <action selector="userLocationBtnAction:" destination="wi4-EU-nhV" eventType="touchUpInside" id="R3C-bd-fkf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uwn-NE-zGS">
+                                <rect key="frame" x="10" y="106" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="4so-HJ-aCR"/>
+                                    <constraint firstAttribute="height" constant="64" id="QOX-yr-Jt0"/>
+                                </constraints>
+                                <state key="normal" image="Directions"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -451,18 +470,23 @@
                             <constraint firstItem="iqL-HQ-Gcj" firstAttribute="bottom" secondItem="7oV-yU-JdM" secondAttribute="bottom" constant="25" id="aau-Fe-3L2"/>
                             <constraint firstItem="iqL-HQ-Gcj" firstAttribute="trailing" secondItem="7oV-yU-JdM" secondAttribute="trailing" constant="52" id="dGY-XB-Pyv"/>
                             <constraint firstItem="KSz-Su-Oga" firstAttribute="bottom" secondItem="iqL-HQ-Gcj" secondAttribute="bottom" id="eth-up-hs5"/>
+                            <constraint firstItem="DLN-Lt-xLE" firstAttribute="leading" secondItem="iqL-HQ-Gcj" secondAttribute="leading" constant="10" id="kfb-8b-1h5"/>
                             <constraint firstItem="KSz-Su-Oga" firstAttribute="trailing" secondItem="iqL-HQ-Gcj" secondAttribute="trailing" id="lzy-OX-nWE"/>
+                            <constraint firstItem="Uwn-NE-zGS" firstAttribute="top" secondItem="DLN-Lt-xLE" secondAttribute="bottom" constant="8" id="mhJ-I7-b8Q"/>
+                            <constraint firstItem="Uwn-NE-zGS" firstAttribute="leading" secondItem="iqL-HQ-Gcj" secondAttribute="leading" constant="10" id="nUP-xW-7fO"/>
+                            <constraint firstItem="DLN-Lt-xLE" firstAttribute="top" secondItem="iqL-HQ-Gcj" secondAttribute="top" constant="14" id="v03-b7-9Dd"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iqL-HQ-Gcj"/>
                     </view>
                     <navigationItem key="navigationItem" id="MUZ-Jn-KBW"/>
                     <connections>
                         <outlet property="mymap" destination="KSz-Su-Oga" id="7xI-6E-feV"/>
+                        <outlet property="userLocationBtn" destination="DLN-Lt-xLE" id="IN7-BA-vGF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hI9-Pk-4Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4601" y="161"/>
+            <point key="canvasLocation" x="4600.8000000000002" y="160.56971514242881"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AYj-Ni-gZw">
@@ -1041,7 +1065,9 @@
         <image name="Back" width="24" height="24"/>
         <image name="Computer" width="36" height="36"/>
         <image name="Daniela Village" width="1024" height="681"/>
+        <image name="Directions" width="96" height="96"/>
         <image name="Location" width="36" height="36"/>
+        <image name="LocationOff" width="96" height="96"/>
         <image name="Phone" width="36" height="36"/>
         <image name="bed" width="24" height="24"/>
         <image name="camel2" width="450" height="359.39999389648438"/>
