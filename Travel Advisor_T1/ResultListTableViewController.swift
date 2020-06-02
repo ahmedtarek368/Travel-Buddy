@@ -7,13 +7,11 @@
 //
 
 import UIKit
+import SwiftyStarRatingView
 
 class ResultListTableViewController: UITableViewController {
     
-    let resultsImgArr = ["jaz dahabeya.jpg","hotel-lagona-village.jpg","Tirana Dahab Resort.jpg","Daniela Village.jpg"]
-    let resultsArr = ["Jaz Dahabeya","Lagona Village Hotel","Tirana Dahab Resort","Daniela Village"]
-    //let thingsARRimg = ["jaz dahabeya.jpg","hotel-lagona-village.jpg","Tirana Dahab Resort.jpg"]
-    //let thingsName = ["Jaz Dahabeya","Lagona Village Hotel","Tirana Dahab Resort"]
+    var data : Array<Dictionary<String,Any>>=[]
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -31,23 +29,32 @@ class ResultListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return resultsArr.count
+        return data.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "hotelCell", for: indexPath)
+        let temp = data[indexPath.row]
         
         let resultImg : UIImageView = cell.viewWithTag(1) as! UIImageView
-        resultImg.image = UIImage(named: resultsImgArr[indexPath.row])
+        do{
+            resultImg.image = try UIImage(data: Data(contentsOf: NSURL(string: "https://firebasestorage.googleapis.com/v0/b/travelbuddy-bf4d7.appspot.com/o/\(temp["image"] as! String)")! as URL))
+        }catch{}
         resultImg.layer.cornerRadius = 8
+        
         let resultName : UITextView = cell.viewWithTag(2) as! UITextView
-        resultName.text = resultsArr[indexPath.row]
+        resultName.text = temp["name"] as? String
+        
+        let resultRate : SwiftyStarRatingView = cell.viewWithTag(3) as! SwiftyStarRatingView
+        resultRate.value = temp["rate"] as! CGFloat
+        
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //if indexPath.row == 0 || indexPath.row == 1 || indexPath.row == 2{
-        let HDTVC : HotelDetailsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "HDTVC") as! HotelDetailsTableViewController
-        self.navigationController?.pushViewController(HDTVC, animated: true)
+        let DTVC : DetailsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "DTVC") as! DetailsTableViewController
+        let temp = data[indexPath.row]
+        DTVC.dic = temp
+        self.navigationController?.pushViewController(DTVC, animated: true)
         
     }
     /*

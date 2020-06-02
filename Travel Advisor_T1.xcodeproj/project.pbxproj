@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		0906E88823E87C38006D0A10 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906E88723E87C38006D0A10 /* HomeTableViewController.swift */; };
 		090D305E23ECABC500D60A37 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */; };
-		097BF763241953A1000B3E2B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 097BF762241953A1000B3E2B /* GoogleService-Info.plist */; };
-		097BF765241972A0000B3E2B /* HotelDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BF764241972A0000B3E2B /* HotelDetailsTableViewController.swift */; };
+		097BF765241972A0000B3E2B /* DetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BF764241972A0000B3E2B /* DetailsTableViewController.swift */; };
 		098F83F623E0764A00455860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F83F523E0764A00455860 /* AppDelegate.swift */; };
 		098F83FB23E0764A00455860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098F83F923E0764A00455860 /* Main.storyboard */; };
 		098F83FE23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 098F83FC23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld */; };
@@ -19,6 +18,10 @@
 		098F840E23E0765B00455860 /* Travel_Advisor_T1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F840D23E0765B00455860 /* Travel_Advisor_T1Tests.swift */; };
 		098F841923E0765B00455860 /* Travel_Advisor_T1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F841823E0765B00455860 /* Travel_Advisor_T1UITests.swift */; };
 		0992D16C241A3FE200C3FD4F /* ResultListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */; };
+		09B40376247F172900E5014E /* FIreBaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B40375247F172900E5014E /* FIreBaseHandler.swift */; };
+		09BFB35B24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
+		09BFB35C24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
+		09BFB35D24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
 		09D8D9F92420067D00BF57EB /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D8D9F82420067D00BF57EB /* LocationViewController.swift */; };
 		09EA480723EB34FC00550C5E /* selectCityProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA480623EB34FC00550C5E /* selectCityProtocol.swift */; };
 		53F270D5496F632C6849659D /* Pods_Travel_Advisor_T1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8E56E5C428FB8682A29C0C /* Pods_Travel_Advisor_T1.framework */; };
@@ -46,8 +49,7 @@
 /* Begin PBXFileReference section */
 		0906E88723E87C38006D0A10 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
-		097BF762241953A1000B3E2B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		097BF764241972A0000B3E2B /* HotelDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelDetailsTableViewController.swift; sourceTree = "<group>"; };
+		097BF764241972A0000B3E2B /* DetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewController.swift; sourceTree = "<group>"; };
 		098F83F223E0764A00455860 /* Travel Advisor_T1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel Advisor_T1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		098F83F523E0764A00455860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		098F83FA23E0764A00455860 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,8 @@
 		098F841823E0765B00455860 /* Travel_Advisor_T1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_Advisor_T1UITests.swift; sourceTree = "<group>"; };
 		098F841A23E0765B00455860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListTableViewController.swift; sourceTree = "<group>"; };
+		09B40375247F172900E5014E /* FIreBaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIreBaseHandler.swift; sourceTree = "<group>"; };
+		09BFB35A24842A92000C287A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09D8D9F82420067D00BF57EB /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		09EA480623EB34FC00550C5E /* selectCityProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = selectCityProtocol.swift; sourceTree = "<group>"; };
 		1B8E56E5C428FB8682A29C0C /* Pods_Travel_Advisor_T1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_Advisor_T1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,14 +137,15 @@
 				098F83FF23E0765B00455860 /* Assets.xcassets */,
 				098F840123E0765B00455860 /* LaunchScreen.storyboard */,
 				098F840423E0765B00455860 /* Info.plist */,
-				097BF762241953A1000B3E2B /* GoogleService-Info.plist */,
+				09BFB35A24842A92000C287A /* GoogleService-Info.plist */,
 				098F83FC23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld */,
 				0906E88723E87C38006D0A10 /* HomeTableViewController.swift */,
 				090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */,
 				0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */,
-				097BF764241972A0000B3E2B /* HotelDetailsTableViewController.swift */,
+				097BF764241972A0000B3E2B /* DetailsTableViewController.swift */,
 				09D8D9F82420067D00BF57EB /* LocationViewController.swift */,
 				09EA480623EB34FC00550C5E /* selectCityProtocol.swift */,
+				09B40375247F172900E5014E /* FIreBaseHandler.swift */,
 				098F83F323E0764A00455860 /* Products */,
 			);
 			path = "Travel Advisor_T1";
@@ -296,7 +301,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				098F840323E0765B00455860 /* LaunchScreen.storyboard in Resources */,
-				097BF763241953A1000B3E2B /* GoogleService-Info.plist in Resources */,
+				09BFB35B24842A93000C287A /* GoogleService-Info.plist in Resources */,
 				098F840023E0765B00455860 /* Assets.xcassets in Resources */,
 				098F83FB23E0764A00455860 /* Main.storyboard in Resources */,
 			);
@@ -306,6 +311,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BFB35C24842A93000C287A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +319,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09BFB35D24842A93000C287A /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,13 +416,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09B40376247F172900E5014E /* FIreBaseHandler.swift in Sources */,
 				0992D16C241A3FE200C3FD4F /* ResultListTableViewController.swift in Sources */,
 				09EA480723EB34FC00550C5E /* selectCityProtocol.swift in Sources */,
 				090D305E23ECABC500D60A37 /* CitiesTableViewController.swift in Sources */,
 				098F83FE23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld in Sources */,
 				098F83F623E0764A00455860 /* AppDelegate.swift in Sources */,
 				09D8D9F92420067D00BF57EB /* LocationViewController.swift in Sources */,
-				097BF765241972A0000B3E2B /* HotelDetailsTableViewController.swift in Sources */,
+				097BF765241972A0000B3E2B /* DetailsTableViewController.swift in Sources */,
 				0906E88823E87C38006D0A10 /* HomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

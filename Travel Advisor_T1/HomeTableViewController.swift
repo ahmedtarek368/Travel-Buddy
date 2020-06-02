@@ -8,12 +8,14 @@
 
 import UIKit
 import SwiftyStarRatingView
+import Firebase
+
 class HomeTableViewController: UITableViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,selectCity {
-    
     @IBOutlet weak var whereToBtnOutlet: UIButton!
     @IBOutlet weak var categoryCollView: UICollectionView!
     @IBOutlet weak var recommendCollView: UICollectionView!
     @IBOutlet weak var nearbyCollView: UICollectionView!
+    
     let categoryImgArr = ["Ticket2-2.png","Mountain.png","Hotel2-1.png","Restaurant-1.png"]
     let categoryArr = ["Things to Do","Attractions","Hotels","Restaurants"]
     let recommendImgArr = ["Quad Biking.jpg","Diving.jpg","Old Market.jpg","concorde-el-salam-hotel.jpg","hotel-lagona-village.jpg","Tirana Dahab Resort.jpg","Daniela Village.jpg"]
@@ -92,22 +94,32 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(collectionView == categoryCollView){
-            let ResListTVC : ResultListTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "RLTVC") as! ResultListTableViewController
-            if indexPath.row==2{
-                ResListTVC.title="Hotels"
-                self.navigationController?.pushViewController(ResListTVC, animated: true)
-            }
-            if indexPath.row==0{
-                ResListTVC.title="Things to do"
-                self.navigationController?.pushViewController(ResListTVC, animated: true)
-            }
-            if indexPath.row==1{
-                ResListTVC.title="Attractions"
-                self.navigationController?.pushViewController(ResListTVC, animated: true)
-            }
-            if indexPath.row==3{
-                ResListTVC.title="Resturants"
-                self.navigationController?.pushViewController(ResListTVC, animated: true)
+            if whereToBtnOutlet.currentTitle == "Where to?"{
+                let selectCityAlert = UIAlertController(title: "Undefined Destination", message: "Please Select Where to", preferredStyle: .alert)
+                selectCityAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(selectCityAlert, animated: true, completion: nil)
+            }else{
+                let ResListTVC : ResultListTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "RLTVC") as! ResultListTableViewController
+                if indexPath.row==2{
+                    ResListTVC.title="Hotels"
+                    readData(town: whereToBtnOutlet.currentTitle!, category: "Hotels", completion: {(data) in ResListTVC.data=data
+                        self.navigationController?.pushViewController(ResListTVC, animated: true)})
+                }
+                if indexPath.row==0{
+                    ResListTVC.title="Things to do"
+                    readData(town: whereToBtnOutlet.currentTitle!, category: "Things to do", completion: {(data) in ResListTVC.data=data
+                        self.navigationController?.pushViewController(ResListTVC, animated: true)})
+                }
+                if indexPath.row==1{
+                    ResListTVC.title="Attractions"
+                    readData(town: whereToBtnOutlet.currentTitle!, category: "Attractions", completion: {(data) in ResListTVC.data=data
+                        self.navigationController?.pushViewController(ResListTVC, animated: true)})
+                }
+                if indexPath.row==3{
+                    ResListTVC.title="Resturants"
+                    readData(town: whereToBtnOutlet.currentTitle!, category: "Resturants", completion: {(data) in ResListTVC.data=data
+                        self.navigationController?.pushViewController(ResListTVC, animated: true)})
+                }
             }
         }
     }

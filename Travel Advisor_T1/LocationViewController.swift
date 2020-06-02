@@ -8,22 +8,26 @@
 
 import UIKit
 import MapKit
+
 class LocationViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate {
 
     @IBOutlet weak var userLocationBtn: UIButton!
     @IBOutlet weak var mymap: MKMapView!
     
+    var latitude = 28.5376138
+    var longitude = 34.5155859
+    var annotaionTitle = "Title"
     var viewOnUserLocation = false
     let locationManager = CLLocationManager()
-    let destination = CLLocation(latitude:28.5376138,longitude:34.5155859)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        centerViewOnDestinationLocation()
         
+        centerViewOnDestinationLocation()
+        let destination = CLLocation(latitude:latitude,longitude:longitude)
         let PointAnnotion = MKPointAnnotation()
         PointAnnotion.coordinate = destination.coordinate
-        PointAnnotion.title="Daniela Village"
+        PointAnnotion.title = annotaionTitle
         PointAnnotion.subtitle="3-star hotel"
         mymap.addAnnotation(PointAnnotion)
         
@@ -56,6 +60,7 @@ class LocationViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         }
     }
     func centerViewOnDestinationLocation(){
+        let destination = CLLocation(latitude:latitude,longitude:longitude)
         let region = MKCoordinateRegion(center:destination.coordinate,latitudinalMeters:500,longitudinalMeters:500)
         mymap.setRegion(region, animated: true)
     }

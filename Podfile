@@ -12,6 +12,7 @@ target 'Travel Advisor_T1' do
     pod 'SwiftyStarRatingView'
     pod 'Firebase/Analytics'
     pod 'Firebase/Database'
+    pod 'Firebase/Firestore'
 
   target 'Travel Advisor_T1Tests' do
     inherit! :search_paths
