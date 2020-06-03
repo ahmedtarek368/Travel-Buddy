@@ -10,3 +10,6 @@ import Foundation
 protocol selectCity{
     func selectCity(city:String)
 }
+protocol refreshFavourites {
+    func refresh(data : Array<Dictionary<String,Any>>)
+}

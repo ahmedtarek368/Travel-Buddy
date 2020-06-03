@@ -39,6 +39,7 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
         whereToBtnOutlet.layer.cornerRadius = whereToBtnOutlet.frame.width/5.8
         //whereToBtnOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
         //whereToBtnOutlet.titleLabel?.minimumScaleFactor = 0.3
+        //insertData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -116,8 +117,8 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
                         self.navigationController?.pushViewController(ResListTVC, animated: true)})
                 }
                 if indexPath.row==3{
-                    ResListTVC.title="Resturants"
-                    readData(town: whereToBtnOutlet.currentTitle!, category: "Resturants", completion: {(data) in ResListTVC.data=data
+                    ResListTVC.title="Restaurants"
+                    readData(town: whereToBtnOutlet.currentTitle!, category: "Restaurants", completion: {(data) in ResListTVC.data=data
                         self.navigationController?.pushViewController(ResListTVC, animated: true)})
                 }
             }

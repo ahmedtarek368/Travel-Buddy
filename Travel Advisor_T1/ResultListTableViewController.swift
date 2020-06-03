@@ -12,6 +12,7 @@ import SwiftyStarRatingView
 class ResultListTableViewController: UITableViewController {
     
     var data : Array<Dictionary<String,Any>>=[]
+    let favourite = false
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -33,7 +34,7 @@ class ResultListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "hotelCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
         let temp = data[indexPath.row]
         
         let resultImg : UIImageView = cell.viewWithTag(1) as! UIImageView
@@ -54,6 +55,7 @@ class ResultListTableViewController: UITableViewController {
         let DTVC : DetailsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "DTVC") as! DetailsTableViewController
         let temp = data[indexPath.row]
         DTVC.dic = temp
+        DTVC.favourite = self.favourite
         self.navigationController?.pushViewController(DTVC, animated: true)
         
     }
