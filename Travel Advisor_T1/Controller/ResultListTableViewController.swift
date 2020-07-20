@@ -20,6 +20,7 @@ class ResultListTableViewController: UITableViewController {
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.font: UIFont(name: "Avenir Next", size: 35)!]
         self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)]
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -33,7 +34,7 @@ class ResultListTableViewController: UITableViewController {
         return places.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         let place = places[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! resultPlaceCell
@@ -41,6 +42,7 @@ class ResultListTableViewController: UITableViewController {
         
         return cell
     }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let DTVC : DetailsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "DTVC") as! DetailsTableViewController
         let place = places[indexPath.row]

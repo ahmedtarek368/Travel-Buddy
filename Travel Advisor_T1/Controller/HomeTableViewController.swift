@@ -45,34 +45,36 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         whereToBtnOutlet.layer.cornerRadius = whereToBtnOutlet.frame.width/5.8
-        //whereToBtnOutlet.titleLabel?.adjustsFontSizeToFitWidth = true
-        //whereToBtnOutlet.titleLabel?.minimumScaleFactor = 0.3
         //insertData()
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(collectionView == recommendCollView){
             return recommendPlaces.count
-        }else if(collectionView == nearbyCollView){
+        }
+        else if(collectionView == nearbyCollView){
             return nearbyPlaces.count
         }
         return categoryArr.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         if(collectionView == recommendCollView){
             let place = recommendPlaces[indexPath.row]
             let cell = recommendCollView.dequeueReusableCell(withReuseIdentifier: "recCell", for: indexPath) as! recommendedCell
             cell.setPlace(place: place)
             return cell
-            }
-        else if(collectionView == nearbyCollView){
+        }
             
+        else if(collectionView == nearbyCollView){
             let place = nearbyPlaces[indexPath.row]
             let cell = nearbyCollView.dequeueReusableCell(withReuseIdentifier: "nearbyCell", for: indexPath) as! nearbyCell
             cell.setPlace(place: place)
             return cell
         }
+        
+        // if (collectionView == categoryCollView)
         let cell = categoryCollView.dequeueReusableCell(withReuseIdentifier: "catCell", for: indexPath)
         let catImg :UIImageView = cell.viewWithTag(1) as! UIImageView
         catImg.image = UIImage(named:categoryImgArr[indexPath.row])
@@ -80,7 +82,6 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
         catTextView.textContainer.maximumNumberOfLines = 2
         catTextView.textContainer.lineBreakMode = .byClipping
         catTextView.text = categoryArr[indexPath.row]
-        
         return cell
     }
     
@@ -90,7 +91,8 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
                 let selectCityAlert = UIAlertController(title: "Undefined Destination", message: "Please Select Where to", preferredStyle: .alert)
                 selectCityAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                 self.present(selectCityAlert, animated: true, completion: nil)
-            }else{
+            }
+            else{
                 let ResListTVC : ResultListTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "RLTVC") as! ResultListTableViewController
                 if indexPath.row==2{
                     ResListTVC.title="Hotels"
@@ -115,7 +117,9 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
             }
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        
         if(collectionView == recommendCollView) || (collectionView == nearbyCollView){
             return 9.0
         }
@@ -123,34 +127,32 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         if(collectionView == categoryCollView){
             let height : CGFloat = self.categoryCollView.frame.size.height
             let width : CGFloat = self.categoryCollView.frame.size.width
-            //return CGSize(width: width * 0.2475 , height: height * 0.9 )
-            //return CGSize(width: width * 0.248 , height: height * 0.98 )
             return CGSize(width: width * 0.2475 , height: height * 0.92 )
-        }else if(collectionView == nearbyCollView){
+        }
+            
+        else if(collectionView == nearbyCollView){
             let height : CGFloat = self.nearbyCollView.frame.size.height
             let width : CGFloat = self.nearbyCollView.frame.size.width
             return CGSize(width: width * 0.89 , height: height )
-            //return CGSize(width: view.frame.width*0.91 , height: 280 )
         }
+        
+        // if (collectionView == recommendCollView)
         let height : CGFloat = self.recommendCollView.frame.size.height
         let width : CGFloat = self.recommendCollView.frame.size.width
         return CGSize(width: width * 0.89 , height: height )
-        //return CGSize(width: view.frame.width*0.91 , height: 280 )
     }
     
     func selectCity(city: String) {
-        //whereToBtnOutlet.titleLabel?.text = city
         whereToBtnOutlet.setTitle(city, for: .normal)
-        
     }
     
     @IBAction func whereToBtnAction(_ sender: Any) {
         let citiesTVC : CitiesTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "citiesTVC") as! CitiesTableViewController
         citiesTVC.delegate = self
-        //self.navigationController?.pushViewController(citiesTVC, animated: true)
         self.present(citiesTVC, animated: true, completion: nil)
     }
     @IBAction func deselectCityBtn(_ sender: Any) {
@@ -159,16 +161,6 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
     
     
     // MARK: - Table view data source
-    
-    /*
-     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-     let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-     
-     // Configure the cell...
-     
-     return cell
-     }
-     */
     
 }
 

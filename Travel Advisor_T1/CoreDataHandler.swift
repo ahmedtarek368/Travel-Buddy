@@ -86,7 +86,6 @@ func CDFetching() -> ([Place]){
         let image = (Objects[i] as AnyObject).value(forKey: "image")! as! Data
     
         places.append(Place(name: name, phone: phone, address: address, category: "", town: town, image: "", rate: rate, prices: prices, coordinates: coordinates, imageData: image))
-        //data.append(["name":(Objects[i] as AnyObject).value(forKey: "name")!,"rate":(Objects[i] as AnyObject).value(forKey: "rate")!,"address":(Objects[i] as AnyObject).value(forKey: "address")!,"image":(Objects[i] as AnyObject).value(forKey: "image")!,"phone":(Objects[i] as AnyObject).value(forKey: "phone")!,"prices":(Objects[i] as AnyObject).value(forKey: "prices")!,"town":(Objects[i] as AnyObject).value(forKey: "town")!,"coordinates":coordinates])
     }
     print("data fitched")
     return places
