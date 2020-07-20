@@ -19,13 +19,13 @@ class DetailsTableViewController: UITableViewController{
     @IBOutlet weak var favBtn: UIButton!
 
     var delegate:refreshFavourites?
-    var dic : Dictionary<String,Any>=[:]
+    var place : Place = Place(name: "", phone: "", address: "", category: "", town: "", image: "", rate: 0, prices: 0, coordinates: [], imageData: .init())
     var favourite = false
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.prefersLargeTitles = false
         
-        if isAttributeExist(name: dic["name"] as! String) == true {
+        if isAttributeExist(name: place.name) == true {
             favBtn.imageView?.image = UIImage(named: "filled heart")
         }else{
             favBtn.imageView?.image = UIImage(named: "empty heart")
@@ -35,29 +35,30 @@ class DetailsTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         if favourite == true {
-            imageView.image = UIImage(data: dic["image"] as! Data)
+            imageView.image = UIImage(data: place.imageData)
         }else{
             do{
-                imageView.image = try UIImage(data: Data(contentsOf: NSURL(string: "https://firebasestorage.googleapis.com/v0/b/travelbuddy-bf4d7.appspot.com/o/\(dic["image"] as! String)")! as URL))
+                imageView.image = try UIImage(data: Data(contentsOf: NSURL(string: "https://firebasestorage.googleapis.com/v0/b/travelbuddy-bf4d7.appspot.com/o/\(place.image)")! as URL))
             }catch{}
         }
-        name.text = dic["name"] as? String
-        rate.value = dic["rate"] as! CGFloat
-        address.text =  "\(dic["town"] ?? "0"), \(dic["address"] ?? "0")"
-        prices.value = dic["prices"] as! CGFloat
+        name.text = place.name
+        rate.value = CGFloat(place.rate.floatValue)
+        address.text =  "\(place.town), \(place.address)"
+        prices.value = CGFloat(place.rate.floatValue)
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row==2{
-            let phoneNumAlert = UIAlertController(title: "Contact Numbers", message: dic["phone"] as? String, preferredStyle: .alert)
+            let phoneNumAlert = UIAlertController(title: "Contact Numbers", message: place.phone, preferredStyle: .alert)
             phoneNumAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(phoneNumAlert, animated: true, completion: nil)
         }
         else if indexPath.row==4{
             let Loc : LocationViewController = self.storyboard?.instantiateViewController(withIdentifier: "Location") as! LocationViewController
             Loc.title="Location"
-            Loc.annotaionTitle = dic["name"] as! String
-            let temp :  Array<Double> = dic["coordinates"] as! Array<Double>
+            Loc.annotaionTitle = place.name
+            let temp :  Array<Double> = place.coordinates as! Array<Double>
+            print(temp)
             Loc.latitude = temp[0]
             Loc.longitude = temp[1]
             self.navigationController?.pushViewController(Loc, animated: true)
@@ -65,13 +66,13 @@ class DetailsTableViewController: UITableViewController{
     }
     
     @IBAction func favBtnAction(_ sender: Any) {
-        if isAttributeExist(name: dic["name"] as! String) == true{
+        if isAttributeExist(name: place.name) == true{
             
             favBtn.imageView?.image = UIImage(named: "empty heart")
-            CDDeletion(name: dic["name"] as! String)
+            CDDeletion(name: place.name)
             if favourite == true {
                 let data = CDFetching()
-                delegate?.refresh(data: data)
+                delegate?.refresh(places: data)
             }else{
                 //let data = CDFetching()
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "refreshFav"), object: nil)
@@ -80,13 +81,13 @@ class DetailsTableViewController: UITableViewController{
         }
         else{
             favBtn.imageView?.image = UIImage(named: "filled heart")
-            let rate : Float = Float(truncating: dic["rate"] as! NSNumber)
-            let prices : Float = Float(truncating: dic["prices"] as! NSNumber)
-            let coordinates :  Array<Double> = dic["coordinates"] as! Array<Double>
-            CDInsertion(name: dic["name"] as! String, rate: rate, prices: prices, phone: dic["phone"] as! String, coordinates: coordinates, Image: imageView.image!, address: dic["address"] as! String, town: dic["town"] as! String)
+            let rate : Float = Float(truncating: place.rate)
+            let prices : Float = Float(truncating: place.prices)
+            let coordinates :  Array<Double> = place.coordinates as! Array<Double>
+            CDInsertion(name: place.name, rate: rate, prices: prices, phone: place.phone, coordinates: coordinates, Image: imageView.image!, address: place.address, town: place.town)
             if favourite == true {
                 let data = CDFetching()
-                delegate?.refresh(data: data)
+                delegate?.refresh(places: data)
             }else{
                 //let data = CDFetching()
                 NotificationCenter.default.post(name: Notification.Name(rawValue: "refreshFav"), object: nil)

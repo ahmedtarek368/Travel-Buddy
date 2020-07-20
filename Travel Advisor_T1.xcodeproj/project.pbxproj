@@ -11,6 +11,8 @@
 		090605FA24874E46009C3207 /* FavouritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090605F924874E46009C3207 /* FavouritesTableViewController.swift */; };
 		0906E88823E87C38006D0A10 /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0906E88723E87C38006D0A10 /* HomeTableViewController.swift */; };
 		090D305E23ECABC500D60A37 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */; };
+		0931CEC624C5E065005CE94C /* recommendedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0931CEC524C5E065005CE94C /* recommendedCell.swift */; };
+		0931CEC824C5E3ED005CE94C /* favouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0931CEC724C5E3ED005CE94C /* favouriteCell.swift */; };
 		097BF765241972A0000B3E2B /* DetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097BF764241972A0000B3E2B /* DetailsTableViewController.swift */; };
 		098F83F623E0764A00455860 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F83F523E0764A00455860 /* AppDelegate.swift */; };
 		098F83FB23E0764A00455860 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 098F83F923E0764A00455860 /* Main.storyboard */; };
@@ -21,6 +23,9 @@
 		098F841923E0765B00455860 /* Travel_Advisor_T1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F841823E0765B00455860 /* Travel_Advisor_T1UITests.swift */; };
 		0992D16C241A3FE200C3FD4F /* ResultListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */; };
 		09B40376247F172900E5014E /* FIreBaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B40375247F172900E5014E /* FIreBaseHandler.swift */; };
+		09BB4FC924C57E9300E1C828 /* nearbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB4FC824C57E9300E1C828 /* nearbyCell.swift */; };
+		09BB4FCC24C583E900E1C828 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB4FCB24C583E900E1C828 /* Place.swift */; };
+		09BB4FCE24C5989700E1C828 /* resultPlaceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB4FCD24C5989700E1C828 /* resultPlaceCell.swift */; };
 		09BFB35B24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
 		09BFB35C24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
 		09BFB35D24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
@@ -53,6 +58,8 @@
 		090605F924874E46009C3207 /* FavouritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesTableViewController.swift; sourceTree = "<group>"; };
 		0906E88723E87C38006D0A10 /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		0931CEC524C5E065005CE94C /* recommendedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recommendedCell.swift; sourceTree = "<group>"; };
+		0931CEC724C5E3ED005CE94C /* favouriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = favouriteCell.swift; sourceTree = "<group>"; };
 		097BF764241972A0000B3E2B /* DetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewController.swift; sourceTree = "<group>"; };
 		098F83F223E0764A00455860 /* Travel Advisor_T1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Travel Advisor_T1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		098F83F523E0764A00455860 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +76,9 @@
 		098F841A23E0765B00455860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListTableViewController.swift; sourceTree = "<group>"; };
 		09B40375247F172900E5014E /* FIreBaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIreBaseHandler.swift; sourceTree = "<group>"; };
+		09BB4FC824C57E9300E1C828 /* nearbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyCell.swift; sourceTree = "<group>"; };
+		09BB4FCB24C583E900E1C828 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		09BB4FCD24C5989700E1C828 /* resultPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultPlaceCell.swift; sourceTree = "<group>"; };
 		09BFB35A24842A92000C287A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		09D8D9F82420067D00BF57EB /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		09EA480623EB34FC00550C5E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
@@ -111,6 +121,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0903181824C491C3003D777F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				09BB4FC824C57E9300E1C828 /* nearbyCell.swift */,
+				0931CEC524C5E065005CE94C /* recommendedCell.swift */,
+				09BB4FCD24C5989700E1C828 /* resultPlaceCell.swift */,
+				0931CEC724C5E3ED005CE94C /* favouriteCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0903181B24C49287003D777F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0906E88723E87C38006D0A10 /* HomeTableViewController.swift */,
+				090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */,
+				0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */,
+				097BF764241972A0000B3E2B /* DetailsTableViewController.swift */,
+				090605F924874E46009C3207 /* FavouritesTableViewController.swift */,
+				09D8D9F82420067D00BF57EB /* LocationViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		098F83E923E0764A00455860 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +170,9 @@
 		098F83F423E0764A00455860 /* Travel Advisor_T1 */ = {
 			isa = PBXGroup;
 			children = (
+				09BB4FCA24C5838A00E1C828 /* Model */,
+				0903181824C491C3003D777F /* View */,
+				0903181B24C49287003D777F /* Controller */,
 				098F83F523E0764A00455860 /* AppDelegate.swift */,
 				098F83F923E0764A00455860 /* Main.storyboard */,
 				098F83FF23E0765B00455860 /* Assets.xcassets */,
@@ -143,12 +180,6 @@
 				098F840423E0765B00455860 /* Info.plist */,
 				09BFB35A24842A92000C287A /* GoogleService-Info.plist */,
 				098F83FC23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld */,
-				0906E88723E87C38006D0A10 /* HomeTableViewController.swift */,
-				090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */,
-				0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */,
-				090605F924874E46009C3207 /* FavouritesTableViewController.swift */,
-				097BF764241972A0000B3E2B /* DetailsTableViewController.swift */,
-				09D8D9F82420067D00BF57EB /* LocationViewController.swift */,
 				09EA480623EB34FC00550C5E /* Protocol.swift */,
 				09B40375247F172900E5014E /* FIreBaseHandler.swift */,
 				090605F724872F45009C3207 /* CoreDataHandler.swift */,
@@ -173,6 +204,14 @@
 				098F841A23E0765B00455860 /* Info.plist */,
 			);
 			path = "Travel Advisor_T1UITests";
+			sourceTree = "<group>";
+		};
+		09BB4FCA24C5838A00E1C828 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				09BB4FCB24C583E900E1C828 /* Place.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1DCEBD267EBE0C2C123093F8 /* Pods */ = {
@@ -423,13 +462,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				09B40376247F172900E5014E /* FIreBaseHandler.swift in Sources */,
+				09BB4FCC24C583E900E1C828 /* Place.swift in Sources */,
+				09BB4FCE24C5989700E1C828 /* resultPlaceCell.swift in Sources */,
+				0931CEC824C5E3ED005CE94C /* favouriteCell.swift in Sources */,
 				090605F824872F45009C3207 /* CoreDataHandler.swift in Sources */,
+				0931CEC624C5E065005CE94C /* recommendedCell.swift in Sources */,
 				090605FA24874E46009C3207 /* FavouritesTableViewController.swift in Sources */,
 				0992D16C241A3FE200C3FD4F /* ResultListTableViewController.swift in Sources */,
 				09EA480723EB34FC00550C5E /* Protocol.swift in Sources */,
 				090D305E23ECABC500D60A37 /* CitiesTableViewController.swift in Sources */,
 				098F83FE23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld in Sources */,
 				098F83F623E0764A00455860 /* AppDelegate.swift in Sources */,
+				09BB4FC924C57E9300E1C828 /* nearbyCell.swift in Sources */,
 				09D8D9F92420067D00BF57EB /* LocationViewController.swift in Sources */,
 				097BF765241972A0000B3E2B /* DetailsTableViewController.swift in Sources */,
 				0906E88823E87C38006D0A10 /* HomeTableViewController.swift in Sources */,
@@ -608,6 +652,7 @@
 			baseConfigurationReference = ABA5CA478F551FEB6FD2946A /* Pods-Travel Advisor_T1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Travel Advisor_T1/Info.plist";
@@ -617,6 +662,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tb.travelbuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -627,6 +673,7 @@
 			baseConfigurationReference = 81609430EE2F3E1B36D589AE /* Pods-Travel Advisor_T1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Travel Advisor_T1/Info.plist";
@@ -636,6 +683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tb.travelbuddy;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

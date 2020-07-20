@@ -11,7 +11,7 @@ import SwiftyStarRatingView
 
 class ResultListTableViewController: UITableViewController {
     
-    var data : Array<Dictionary<String,Any>>=[]
+    var places : [Place] = []
     let favourite = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,31 +30,21 @@ class ResultListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return data.count
+        return places.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
-        let temp = data[indexPath.row]
         
-        let resultImg : UIImageView = cell.viewWithTag(1) as! UIImageView
-        do{
-            resultImg.image = try UIImage(data: Data(contentsOf: NSURL(string: "https://firebasestorage.googleapis.com/v0/b/travelbuddy-bf4d7.appspot.com/o/\(temp["image"] as! String)")! as URL))
-        }catch{}
-        resultImg.layer.cornerRadius = 8
-        
-        let resultName : UITextView = cell.viewWithTag(2) as! UITextView
-        resultName.text = temp["name"] as? String
-        
-        let resultRate : SwiftyStarRatingView = cell.viewWithTag(3) as! SwiftyStarRatingView
-        resultRate.value = temp["rate"] as! CGFloat
+        let place = places[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as! resultPlaceCell
+        cell.setResultPlaces(place: place)
         
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let DTVC : DetailsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "DTVC") as! DetailsTableViewController
-        let temp = data[indexPath.row]
-        DTVC.dic = temp
+        let place = places[indexPath.row]
+        DTVC.place = place
         DTVC.favourite = self.favourite
         self.navigationController?.pushViewController(DTVC, animated: true)
         

@@ -12,8 +12,8 @@ import Firebase
 
 func insertData(){
     let db = Firestore.firestore()
-    db.collection("Port Said").document("Restaurant3").setData([
-        "name": "Central Perk", "phone": "066 3411131", "rate": 4.5, "category": "Restaurants", "town": "Port Said", "address": "Qesm Ash Sharq, 23rd of July st", "coordinates": [31.249633,32.322203], "image": "Central%20Perk.jpg?alt=media&token=8f4fe8b2-c290-42fc-92e7-0ea44a63e00d"], merge : true)
+    db.collection("Places").document().setData([
+        "name": "Portobello", "phone": "01098612111", "rate": 4.7, "category": "Restaurants", "town": "Port Said", "address": "Qesm Ash Sharq, Atef El-Sadat st", "coordinates": [31.272453,32.293507], "image": "Portobello.jpg?alt=media&token=976995d1-2ca0-4679-a98a-3e99ea02a7c7", "prices": 3], merge : true)
     { err in
         if let err = err {
             print("Error writing document: \(err)")
@@ -34,21 +34,22 @@ func deleteData(){
     }
 }
 
-func readData(town:String,category:String,completion: @escaping (_ data : Array<Dictionary<String,Any>>) -> ()){
+func readData(town:String,category:String,completion: @escaping (_ data : [Place]) -> ()){
     
-    var data : Array<Dictionary<String,Any>> = []
+    var places : [Place] = []
     let db = Firestore.firestore()
-    db.collection(town).whereField("category", isEqualTo: category)
+    db.collection("Places").whereField("category", isEqualTo: category).whereField("town", isEqualTo: town)
         .getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     let docData = document.data()
-                    data.append(["name":docData["name"]!,"rate":docData["rate"]!,"phone":docData["phone"]!,"image":docData["image"]!,"address":docData["address"]!,"town":docData["town"]!,"coordinates":docData["coordinates"]!,"prices":docData["prices"]!])
+                    
+                    places.append(Place(name: docData["name"]! as! String, phone: docData["phone"]! as! String, address: docData["address"]! as! String, category: docData["category"]! as! String, town: docData["town"]! as! String, image: docData["image"]! as! String, rate: docData["rate"]! as! NSNumber , prices: docData["prices"]! as! NSNumber, coordinates: docData["coordinates"]! as! [NSNumber], imageData: .init()))
                 }
                 //print(data)
-                completion(data)
+                completion(places)
             }
     }
 }

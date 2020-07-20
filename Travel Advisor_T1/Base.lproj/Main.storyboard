@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.1630669236" green="0.4780766964" blue="0.3174589276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" rowHeight="295" id="eS3-SX-9iv">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="resultCell" rowHeight="295" id="eS3-SX-9iv" customClass="resultPlaceCell" customModule="Travel_Advisor_T1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="295"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eS3-SX-9iv" id="9vX-Tb-843">
@@ -75,6 +75,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="resultPlaceImage" destination="SoM-UC-0fK" id="1mS-oO-mDL"/>
+                                    <outlet property="resultPlaceName" destination="mHG-dQ-bjS" id="cSM-dz-3No"/>
+                                    <outlet property="resultPlaceRate" destination="0AH-cM-RhN" id="sVz-ze-RmO"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -532,7 +537,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="295" id="4iW-ON-R1j">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="favCell" rowHeight="295" id="4iW-ON-R1j" customClass="favouriteCell" customModule="Travel_Advisor_T1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="295"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4iW-ON-R1j" id="ytA-F1-QRz">
@@ -588,6 +593,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="favouriteImage" destination="dFa-z5-e3N" id="gGU-Of-PKO"/>
+                                    <outlet property="favouriteName" destination="Efa-PB-I41" id="rAJ-Mg-n6V"/>
+                                    <outlet property="favouriteRate" destination="0ra-i5-E7m" id="3ar-fX-V39"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -800,14 +810,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="recCView" rowHeight="310" id="U3s-pS-bgG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="recView" rowHeight="310" id="U3s-pS-bgG">
                                         <rect key="frame" x="0.0" y="397" width="375" height="310"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U3s-pS-bgG" id="cmx-Gu-7PE">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="309.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-oW-jjF">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWR-oW-jjF">
                                                     <rect key="frame" x="18" y="16" width="201" height="25.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="0lA-fu-i5B"/>
@@ -829,14 +839,14 @@
                                                         <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recCell" id="QOu-bL-w1w">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nearbyCell" id="QOu-bL-w1w" customClass="nearbyCell" customModule="Travel_Advisor_T1" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="15" width="240" height="240"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Hotel Name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-w0-dcI">
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLd-w0-dcI">
                                                                         <rect key="frame" x="0.0" y="195" width="135" height="30"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -918,6 +928,13 @@
                                                                 <constraint firstItem="fF7-oh-vaF" firstAttribute="top" secondItem="QOu-bL-w1w" secondAttribute="top" id="yaX-co-mRl"/>
                                                                 <constraint firstItem="V5f-Dn-Upw" firstAttribute="top" secondItem="gLd-w0-dcI" secondAttribute="bottom" constant="-2" id="yf9-pX-Rfe"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="nearbyCategory" destination="5s0-cR-hOz" id="Nl9-YZ-0dJ"/>
+                                                                <outlet property="nearbyImage" destination="fF7-oh-vaF" id="O72-uL-N4i"/>
+                                                                <outlet property="nearbyLocation" destination="V5f-Dn-Upw" id="7J6-VL-o6d"/>
+                                                                <outlet property="nearbyName" destination="gLd-w0-dcI" id="rcQ-Um-WQ9"/>
+                                                                <outlet property="nearbyRate" destination="WwK-D0-hMG" id="NEU-rN-URK"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
@@ -938,14 +955,14 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="separatorInset" minX="500" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="nearbyCView" rowHeight="310" id="4Uw-UH-oIW">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="nearbyView" rowHeight="310" id="4Uw-UH-oIW">
                                         <rect key="frame" x="0.0" y="707" width="375" height="310"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Uw-UH-oIW" id="ASX-PE-vTO">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="309.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nearby" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItL-Xg-YPT">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ItL-Xg-YPT">
                                                     <rect key="frame" x="10" y="13" width="201" height="25.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="yl6-w0-bcF"/>
@@ -967,14 +984,14 @@
                                                         <inset key="sectionInset" minX="16" minY="0.0" maxX="16" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nearbyCell" id="uMM-cY-oUc">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="recCell" id="uMM-cY-oUc" customClass="recommendedCell" customModule="Travel_Advisor_T1" customModuleProvider="target">
                                                             <rect key="frame" x="16" y="15" width="240" height="240"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                                                 <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb4-6D-FNL">
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" text="Name" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb4-6D-FNL">
                                                                         <rect key="frame" x="0.0" y="195" width="135" height="30"/>
                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -1056,6 +1073,13 @@
                                                                 <constraint firstAttribute="trailing" secondItem="Xth-fg-v8c" secondAttribute="trailing" id="lYG-c5-f4y"/>
                                                                 <constraint firstAttribute="trailing" secondItem="Mb4-6D-FNL" secondAttribute="trailing" constant="105" id="rm9-6i-Lgs"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="recommendedCategory" destination="LSg-oh-HHI" id="duJ-UE-rKh"/>
+                                                                <outlet property="recommendedImage" destination="Xth-fg-v8c" id="RUx-Nc-lwi"/>
+                                                                <outlet property="recommendedLocation" destination="eLW-kh-HfZ" id="er6-31-eGP"/>
+                                                                <outlet property="recommendedName" destination="Mb4-6D-FNL" id="RzO-8v-Tdo"/>
+                                                                <outlet property="recommendedRate" destination="omv-B5-bzZ" id="yyw-OP-SJK"/>
+                                                            </connections>
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
@@ -1074,6 +1098,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1086,8 +1111,8 @@
                     <navigationItem key="navigationItem" title="Travel Buddy" id="tBJ-nH-f1Z"/>
                     <connections>
                         <outlet property="categoryCollView" destination="9lI-pf-bpI" id="10C-8F-ZZy"/>
-                        <outlet property="nearbyCollView" destination="Wn3-n1-Q92" id="wEL-s7-R5F"/>
-                        <outlet property="recommendCollView" destination="SYs-zl-4FD" id="mKx-CK-s7a"/>
+                        <outlet property="nearbyCollView" destination="SYs-zl-4FD" id="ZMw-qn-dVM"/>
+                        <outlet property="recommendCollView" destination="Wn3-n1-Q92" id="MGD-e8-tuo"/>
                         <outlet property="whereToBtnOutlet" destination="DWz-dK-FLI" id="fhV-cF-xSV"/>
                     </connections>
                 </tableViewController>

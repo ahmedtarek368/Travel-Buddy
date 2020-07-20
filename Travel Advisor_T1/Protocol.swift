@@ -11,5 +11,5 @@ protocol selectCity{
     func selectCity(city:String)
 }
 protocol refreshFavourites {
-    func refresh(data : Array<Dictionary<String,Any>>)
+    func refresh(places : [Place])
 }

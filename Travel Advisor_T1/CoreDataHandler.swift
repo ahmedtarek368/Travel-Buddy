@@ -65,9 +65,9 @@ func CDDeletion(name: String){
     print("Data Deleted")
 }
 
-func CDFetching() -> (Array<Dictionary<String,Any>>){
+func CDFetching() -> ([Place]){
     
-    var data : Array<Dictionary<String,Any>>=[]
+    var places : [Place] = []
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     let managedContext = appDelegate.persistentContainer.viewContext
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Favourites")
@@ -75,10 +75,19 @@ func CDFetching() -> (Array<Dictionary<String,Any>>){
     let Objects = try! managedContext.fetch(fetchRequest)
     
     for i in 0..<Objects.count{
-        let coordinates : Array<Double> = (Objects[i] as AnyObject).value(forKey: "coordinates") as! Array
         
-        data.append(["name":(Objects[i] as AnyObject).value(forKey: "name")!,"rate":(Objects[i] as AnyObject).value(forKey: "rate")!,"address":(Objects[i] as AnyObject).value(forKey: "address")!,"image":(Objects[i] as AnyObject).value(forKey: "image")!,"phone":(Objects[i] as AnyObject).value(forKey: "phone")!,"prices":(Objects[i] as AnyObject).value(forKey: "prices")!,"town":(Objects[i] as AnyObject).value(forKey: "town")!,"coordinates":coordinates])
+        let coordinates = (Objects[i] as AnyObject).value(forKey: "coordinates") as! [NSNumber]
+        let name = (Objects[i] as AnyObject).value(forKey: "name")! as! String
+        let rate = (Objects[i] as AnyObject).value(forKey: "rate")! as! NSNumber
+        let address = (Objects[i] as AnyObject).value(forKey: "address")! as! String
+        let phone = (Objects[i] as AnyObject).value(forKey: "phone")! as! String
+        let prices = (Objects[i] as AnyObject).value(forKey: "prices")! as! NSNumber
+        let town = (Objects[i] as AnyObject).value(forKey: "town")! as! String
+        let image = (Objects[i] as AnyObject).value(forKey: "image")! as! Data
+    
+        places.append(Place(name: name, phone: phone, address: address, category: "", town: town, image: "", rate: rate, prices: prices, coordinates: coordinates, imageData: image))
+        //data.append(["name":(Objects[i] as AnyObject).value(forKey: "name")!,"rate":(Objects[i] as AnyObject).value(forKey: "rate")!,"address":(Objects[i] as AnyObject).value(forKey: "address")!,"image":(Objects[i] as AnyObject).value(forKey: "image")!,"phone":(Objects[i] as AnyObject).value(forKey: "phone")!,"prices":(Objects[i] as AnyObject).value(forKey: "prices")!,"town":(Objects[i] as AnyObject).value(forKey: "town")!,"coordinates":coordinates])
     }
     print("data fitched")
-    return data
+    return places
 }
