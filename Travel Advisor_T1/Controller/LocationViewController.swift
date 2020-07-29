@@ -23,7 +23,7 @@ class LocationViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        centerViewOnDestinationLocation()
+        centerViewOnDestinationLocation(lat: latitude, long: longitude)
         let destination = CLLocation(latitude:latitude,longitude:longitude)
         let PointAnnotion = MKPointAnnotation()
         PointAnnotion.coordinate = destination.coordinate
@@ -36,34 +36,42 @@ class LocationViewController: UIViewController,MKMapViewDelegate,CLLocationManag
     }
     
     
-    @IBAction func userLocationBtnAction(_ sender: Any) {
+    @IBAction func getUserLocationTapped(_ sender: Any) {
         if viewOnUserLocation == false{         //View User Location
-            configureLocationServices()
-            userLocationBtn.setImage(UIImage(named: "LocationOn.png"), for: .normal)
-            viewOnUserLocation = true
+            if configureLocationServices() == true {
+                mymap.showsUserLocation = true
+                centerViewOnUserLocation()
+                locationManager.startUpdatingLocation()
+                userLocationBtn.setImage(UIImage(named: "LocationOn.png"), for: .normal)
+                viewOnUserLocation = true
+            }
         }else if viewOnUserLocation == true{        //View Destination Location
-            centerViewOnDestinationLocation()
+            centerViewOnDestinationLocation(lat: latitude, long: longitude)
             locationManager.stopUpdatingLocation()
             userLocationBtn.setImage(UIImage(named: "LocationOff.png"), for: .normal)
             viewOnUserLocation = false
         }
     }
     
-    func configureLocationServices(){
-        let status = CLLocationManager.authorizationStatus()
-        if status == .notDetermined{
-            locationManager.requestAlwaysAuthorization()
-        }else if status == .authorizedAlways || status == .authorizedWhenInUse{
-            mymap.showsUserLocation = true
-            centerViewOnUserLocation()
-            locationManager.startUpdatingLocation()
-        }
+    @IBAction func getDirectionsTapped(_ sender: Any) {
+        getDirections()
     }
-    func centerViewOnDestinationLocation(){
-        let destination = CLLocation(latitude:latitude,longitude:longitude)
+    
+    func configureLocationServices() -> Bool{
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedAlways || status == .authorizedWhenInUse{
+            return true
+        }
+        locationManager.requestAlwaysAuthorization()
+        return false
+    }
+    
+    func centerViewOnDestinationLocation(lat: Double, long: Double){
+        let destination = CLLocation(latitude:lat,longitude:long)
         let region = MKCoordinateRegion(center:destination.coordinate,latitudinalMeters:500,longitudinalMeters:500)
         mymap.setRegion(region, animated: true)
     }
+    
     func centerViewOnUserLocation(){
         if let location = locationManager.location?.coordinate{
             let Region = MKCoordinateRegion.init(center: location, latitudinalMeters: 500, longitudinalMeters: 500)
@@ -77,6 +85,47 @@ class LocationViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         let Region = MKCoordinateRegion.init(center: locationCoordinates, latitudinalMeters: 500, longitudinalMeters: 500)
         mymap.setRegion(Region, animated: true)
     }
+    
+    func getDirections(){
+        if configureLocationServices() == true {
+            guard let Location = locationManager.location?.coordinate else { return }
+            
+            let request = createDirectionsRequest(from: Location)
+            let directions = MKDirections(request: request)
+            
+            directions.calculate{ [unowned self] (response, error) in
+                guard let response = response else { return }
+                
+                for route in response.routes{
+                    self.mymap.addOverlay(route.polyline)
+                    self.mymap.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                }
+            }
+        }
+    }
+    
+    func createDirectionsRequest(from coordinate:CLLocationCoordinate2D) -> MKDirections.Request{
+        let destinationCoordinate = CLLocationCoordinate2D(latitude:latitude,longitude:longitude)
+        let startingLocation = MKPlacemark(coordinate: coordinate)
+        let destination = MKPlacemark(coordinate: destinationCoordinate)
+        
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: startingLocation)
+        request.destination = MKMapItem(placemark: destination)
+        request.transportType = .automobile
+        request.requestsAlternateRoutes = true
+        
+        return request
+    }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay as! MKPolyline)
+        renderer.strokeColor = .blue
+        
+        return renderer
+    }
+    
+    
     
     @IBAction func visionStyleSelection(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex==0{

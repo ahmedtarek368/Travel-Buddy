@@ -22,6 +22,8 @@
 		098F840E23E0765B00455860 /* Travel_Advisor_T1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F840D23E0765B00455860 /* Travel_Advisor_T1Tests.swift */; };
 		098F841923E0765B00455860 /* Travel_Advisor_T1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098F841823E0765B00455860 /* Travel_Advisor_T1UITests.swift */; };
 		0992D16C241A3FE200C3FD4F /* ResultListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */; };
+		09AAB5E424C84CCB00507E24 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AAB5E324C84CCB00507E24 /* UserViewController.swift */; };
+		09AAB5E624C8766D00507E24 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09AAB5E524C8766D00507E24 /* User.swift */; };
 		09B40376247F172900E5014E /* FIreBaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B40375247F172900E5014E /* FIreBaseHandler.swift */; };
 		09BB4FC924C57E9300E1C828 /* nearbyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB4FC824C57E9300E1C828 /* nearbyCell.swift */; };
 		09BB4FCC24C583E900E1C828 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BB4FCB24C583E900E1C828 /* Place.swift */; };
@@ -29,6 +31,10 @@
 		09BFB35B24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
 		09BFB35C24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
 		09BFB35D24842A93000C287A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 09BFB35A24842A92000C287A /* GoogleService-Info.plist */; };
+		09CFDCA524C6E74C00054E9F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CFDCA424C6E74C00054E9F /* LoginViewController.swift */; };
+		09CFDCA724C6E79400054E9F /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CFDCA624C6E79400054E9F /* SignUpViewController.swift */; };
+		09CFDCA924C6E89600054E9F /* SigningOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CFDCA824C6E89600054E9F /* SigningOptionsViewController.swift */; };
+		09CFDCAB24C7104900054E9F /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CFDCAA24C7104800054E9F /* Utilities.swift */; };
 		09D8D9F92420067D00BF57EB /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D8D9F82420067D00BF57EB /* LocationViewController.swift */; };
 		09EA480723EB34FC00550C5E /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EA480623EB34FC00550C5E /* Protocol.swift */; };
 		53F270D5496F632C6849659D /* Pods_Travel_Advisor_T1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8E56E5C428FB8682A29C0C /* Pods_Travel_Advisor_T1.framework */; };
@@ -75,11 +81,17 @@
 		098F841823E0765B00455860 /* Travel_Advisor_T1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel_Advisor_T1UITests.swift; sourceTree = "<group>"; };
 		098F841A23E0765B00455860 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListTableViewController.swift; sourceTree = "<group>"; };
+		09AAB5E324C84CCB00507E24 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		09AAB5E524C8766D00507E24 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		09B40375247F172900E5014E /* FIreBaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIreBaseHandler.swift; sourceTree = "<group>"; };
 		09BB4FC824C57E9300E1C828 /* nearbyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = nearbyCell.swift; sourceTree = "<group>"; };
 		09BB4FCB24C583E900E1C828 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		09BB4FCD24C5989700E1C828 /* resultPlaceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resultPlaceCell.swift; sourceTree = "<group>"; };
 		09BFB35A24842A92000C287A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		09CFDCA424C6E74C00054E9F /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		09CFDCA624C6E79400054E9F /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		09CFDCA824C6E89600054E9F /* SigningOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigningOptionsViewController.swift; sourceTree = "<group>"; };
+		09CFDCAA24C7104800054E9F /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		09D8D9F82420067D00BF57EB /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		09EA480623EB34FC00550C5E /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		1B8E56E5C428FB8682A29C0C /* Pods_Travel_Advisor_T1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Travel_Advisor_T1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +140,7 @@
 				0931CEC524C5E065005CE94C /* recommendedCell.swift */,
 				09BB4FCD24C5989700E1C828 /* resultPlaceCell.swift */,
 				0931CEC724C5E3ED005CE94C /* favouriteCell.swift */,
+				09CFDCAA24C7104800054E9F /* Utilities.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -135,6 +148,10 @@
 		0903181B24C49287003D777F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				09CFDCA824C6E89600054E9F /* SigningOptionsViewController.swift */,
+				09CFDCA424C6E74C00054E9F /* LoginViewController.swift */,
+				09CFDCA624C6E79400054E9F /* SignUpViewController.swift */,
+				09AAB5E324C84CCB00507E24 /* UserViewController.swift */,
 				0906E88723E87C38006D0A10 /* HomeTableViewController.swift */,
 				090D305D23ECABC500D60A37 /* CitiesTableViewController.swift */,
 				0992D16B241A3FE200C3FD4F /* ResultListTableViewController.swift */,
@@ -210,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				09BB4FCB24C583E900E1C828 /* Place.swift */,
+				09AAB5E524C8766D00507E24 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -467,15 +485,21 @@
 				0931CEC824C5E3ED005CE94C /* favouriteCell.swift in Sources */,
 				090605F824872F45009C3207 /* CoreDataHandler.swift in Sources */,
 				0931CEC624C5E065005CE94C /* recommendedCell.swift in Sources */,
+				09CFDCA924C6E89600054E9F /* SigningOptionsViewController.swift in Sources */,
+				09AAB5E424C84CCB00507E24 /* UserViewController.swift in Sources */,
+				09CFDCA724C6E79400054E9F /* SignUpViewController.swift in Sources */,
 				090605FA24874E46009C3207 /* FavouritesTableViewController.swift in Sources */,
+				09AAB5E624C8766D00507E24 /* User.swift in Sources */,
 				0992D16C241A3FE200C3FD4F /* ResultListTableViewController.swift in Sources */,
 				09EA480723EB34FC00550C5E /* Protocol.swift in Sources */,
 				090D305E23ECABC500D60A37 /* CitiesTableViewController.swift in Sources */,
 				098F83FE23E0764A00455860 /* Travel_Advisor_T1.xcdatamodeld in Sources */,
 				098F83F623E0764A00455860 /* AppDelegate.swift in Sources */,
 				09BB4FC924C57E9300E1C828 /* nearbyCell.swift in Sources */,
+				09CFDCA524C6E74C00054E9F /* LoginViewController.swift in Sources */,
 				09D8D9F92420067D00BF57EB /* LocationViewController.swift in Sources */,
 				097BF765241972A0000B3E2B /* DetailsTableViewController.swift in Sources */,
+				09CFDCAB24C7104900054E9F /* Utilities.swift in Sources */,
 				0906E88823E87C38006D0A10 /* HomeTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

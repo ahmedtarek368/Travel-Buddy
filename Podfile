@@ -13,6 +13,7 @@ target 'Travel Advisor_T1' do
     pod 'Firebase/Analytics'
     pod 'Firebase/Database'
     pod 'Firebase/Firestore'
+    pod 'Firebase/Auth'
 
   target 'Travel Advisor_T1Tests' do
     inherit! :search_paths
