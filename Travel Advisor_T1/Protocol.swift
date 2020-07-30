@@ -7,9 +7,13 @@
 //
 
 import Foundation
+
 protocol selectCity{
     func selectCity(city:String)
 }
 protocol refreshFavourites {
     func refresh(places : [Place])
+}
+protocol refreshReviews {
+    func refresh(placeId: String)
 }

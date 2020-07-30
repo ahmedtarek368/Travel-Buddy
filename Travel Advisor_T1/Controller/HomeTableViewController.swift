@@ -19,17 +19,17 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
     
     
     let nearbyPlaces: [Place] = [
-        Place(name: "Mercure Elforsan Hotel", phone: "", address: "", category: "Hotels in", town: "Ismailia", image: "Mercure.jpg", rate: 4.5, prices: 0, coordinates: [], imageData: .init()),
-        Place(name: "Tolip Elforsan Hotel", phone: "", address: "", category: "Hotels in", town: "Ismailia", image: "Tolip Elforsan.jpg", rate: 3.5, prices: 0, coordinates: [], imageData: .init())
+        Place(name: "Mercure Elforsan Hotel", phone: "", address: "", category: "Hotels in", town: "Ismailia", image: "Mercure.jpg", rate: 4.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
+        Place(name: "Tolip Elforsan Hotel", phone: "", address: "", category: "Hotels in", town: "Ismailia", image: "Tolip Elforsan.jpg", rate: 3.5, prices: 0, coordinates: [], imageData: .init(), placeId: "")
     ]
     
     let recommendPlaces: [Place] = [
-        Place(name: "Quad Biking", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Quad Biking", rate: 4.5, prices: 0, coordinates: [], imageData: .init()),
-        Place(name: "Diving", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Diving", rate: 5.0, prices: 0, coordinates: [], imageData: .init()),
-        Place(name: "Visit Old Market", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Old Market", rate: 3.5, prices: 0, coordinates: [], imageData: .init()),
-        Place(name: "Concord El Salam Hotel", phone: "", address: "", category: "Hotels in", town: "Sharm El Shiekh", image: "concorde-el-salam-hotel", rate: 4.5, prices: 0, coordinates: [], imageData: .init()),
-        Place(name: "Lagona Village Hotel", phone: "", address: "", category: "Hotels in", town: "Dahab", image: "hotel-lagona-village", rate: 3.5, prices: 0, coordinates: [], imageData: .init()),
-        Place(name: "Tirana Dahab Resort", phone: "", address: "", category: "Hotels in", town: "Dahab", image: "Tirana Dahab Resort", rate: 4.0, prices: 0, coordinates: [], imageData: .init())
+        Place(name: "Quad Biking", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Quad Biking", rate: 4.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
+        Place(name: "Diving", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Diving", rate: 5.0, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
+        Place(name: "Visit Old Market", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Old Market", rate: 3.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
+        Place(name: "Concord El Salam Hotel", phone: "", address: "", category: "Hotels in", town: "Sharm El Shiekh", image: "concorde-el-salam-hotel", rate: 4.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
+        Place(name: "Lagona Village Hotel", phone: "", address: "", category: "Hotels in", town: "Dahab", image: "hotel-lagona-village", rate: 3.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
+        Place(name: "Tirana Dahab Resort", phone: "", address: "", category: "Hotels in", town: "Dahab", image: "Tirana Dahab Resort", rate: 4.0, prices: 0, coordinates: [], imageData: .init(), placeId: "")
     ]
     
     let categoryImgArr = ["Ticket2-2.png","Mountain.png","Hotel2-1.png","Restaurant-1.png"]

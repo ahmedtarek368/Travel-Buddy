@@ -21,8 +21,9 @@ class Place {
     var rate : NSNumber
     var prices : NSNumber
     var coordinates : [NSNumber]
+    var placeId : String
     
-    init(name: String, phone: String, address: String, category: String, town: String, image: String, rate: NSNumber, prices: NSNumber, coordinates: [NSNumber], imageData: Data) {
+    init(name: String, phone: String, address: String, category: String, town: String, image: String, rate: NSNumber, prices: NSNumber, coordinates: [NSNumber], imageData: Data, placeId: String) {
         self.name = name
         self.phone = phone
         self.address = address
@@ -33,6 +34,7 @@ class Place {
         self.rate = rate
         self.prices = prices
         self.coordinates = coordinates
+        self.placeId = placeId
     }
 }
 

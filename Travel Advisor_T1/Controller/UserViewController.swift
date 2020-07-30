@@ -27,7 +27,6 @@ class UserViewController: UIViewController {
         userImage.clipsToBounds = true
         
         if Auth.auth().currentUser?.uid == nil {
-            
             // if User is Not Logged in Show Alert
             setUpAlert()
             Utilities.hideButton(signOutButton)

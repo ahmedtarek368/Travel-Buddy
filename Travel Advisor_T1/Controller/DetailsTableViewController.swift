@@ -19,7 +19,7 @@ class DetailsTableViewController: UITableViewController{
     @IBOutlet weak var favBtn: UIButton!
 
     var delegate:refreshFavourites?
-    var place : Place = Place(name: "", phone: "", address: "", category: "", town: "", image: "", rate: 0, prices: 0, coordinates: [], imageData: .init())
+    var place : Place = Place(name: "", phone: "", address: "", category: "", town: "", image: "", rate: 0, prices: 0, coordinates: [], imageData: .init(), placeId: "")
     var favourite = false
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,12 +48,12 @@ class DetailsTableViewController: UITableViewController{
         
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row==2{
+        if indexPath.row == 2{
             let phoneNumAlert = UIAlertController(title: "Contact Numbers", message: place.phone, preferredStyle: .alert)
             phoneNumAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(phoneNumAlert, animated: true, completion: nil)
         }
-        else if indexPath.row==4{
+        else if indexPath.row == 4{
             let Loc : LocationViewController = self.storyboard?.instantiateViewController(withIdentifier: "Location") as! LocationViewController
             Loc.title="Location"
             Loc.annotaionTitle = place.name
@@ -62,6 +62,11 @@ class DetailsTableViewController: UITableViewController{
             Loc.latitude = temp[0]
             Loc.longitude = temp[1]
             self.navigationController?.pushViewController(Loc, animated: true)
+        }
+        else if indexPath.row == 5{
+            let reviewsTVC : ReviewsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "reviewsTVC") as! ReviewsTableViewController
+            reviewsTVC.placeId =  place.placeId
+            self.navigationController?.pushViewController(reviewsTVC, animated: true)
         }
     }
     
