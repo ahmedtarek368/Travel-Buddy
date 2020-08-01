@@ -53,6 +53,7 @@ class DetailsTableViewController: UITableViewController{
             phoneNumAlert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             self.present(phoneNumAlert, animated: true, completion: nil)
         }
+            
         else if indexPath.row == 4{
             let Loc : LocationViewController = self.storyboard?.instantiateViewController(withIdentifier: "Location") as! LocationViewController
             Loc.title="Location"
@@ -63,6 +64,7 @@ class DetailsTableViewController: UITableViewController{
             Loc.longitude = temp[1]
             self.navigationController?.pushViewController(Loc, animated: true)
         }
+            
         else if indexPath.row == 5{
             let reviewsTVC : ReviewsTableViewController = self.storyboard?.instantiateViewController(withIdentifier: "reviewsTVC") as! ReviewsTableViewController
             reviewsTVC.placeId =  place.placeId

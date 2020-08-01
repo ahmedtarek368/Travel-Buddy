@@ -46,9 +46,21 @@ func readData(town:String,category:String,completion: @escaping (_ data : [Place
                 for document in querySnapshot!.documents {
                     let docData = document.data()
                     
-                    places.append(Place(name: docData["name"]! as! String, phone: docData["phone"]! as! String, address: docData["address"]! as! String, category: docData["category"]! as! String, town: docData["town"]! as! String, image: docData["image"]! as! String, rate: docData["rate"]! as! NSNumber , prices: docData["prices"]! as! NSNumber, coordinates: docData["coordinates"]! as! [NSNumber], imageData: .init(), placeId: docData["pid"]! as! String))
+                    let pid = docData["pid"]! as! String
+                    print(pid)
+                    places.append(Place(name: docData["name"]! as! String,
+                                        phone: docData["phone"]! as! String,
+                                        address: docData["address"]! as! String,
+                                        category: docData["category"]! as! String,
+                                        town: docData["town"]! as! String,
+                                        image: docData["image"]! as! String,
+                                        rate: docData["rate"]! as! NSNumber ,
+                                        prices: docData["prices"]! as! NSNumber,
+                                        coordinates: docData["coordinates"]! as! [NSNumber],
+                                        imageData: .init(),
+                                        placeId: docData["pid"]! as! String))
                 }
-                //print(data)
+                //return places data
                 completion(places)
             }
     }

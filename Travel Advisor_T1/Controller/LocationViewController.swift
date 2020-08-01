@@ -125,8 +125,6 @@ class LocationViewController: UIViewController,MKMapViewDelegate,CLLocationManag
         return renderer
     }
     
-    
-    
     @IBAction func visionStyleSelection(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex==0{
             mymap.mapType = .standard

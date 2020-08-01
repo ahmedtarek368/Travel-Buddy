@@ -19,7 +19,10 @@ class nearbyCell: UICollectionViewCell {
     
     func setPlace(place: Place){
         nearbyName.text = place.name
-        nearbyImage.image = UIImage(named: place.image)
+        //nearbyImage.image = UIImage(named: place.image)
+        do{
+            nearbyImage.image = try UIImage(data: Data(contentsOf: NSURL(string: "https://firebasestorage.googleapis.com/v0/b/travelbuddy-bf4d7.appspot.com/o/\(place.image)")! as URL))
+        }catch{}
         nearbyImage.layer.cornerRadius = 8
         nearbyRate.value = CGFloat(place.rate.floatValue)
         nearbyLocation.text = place.town

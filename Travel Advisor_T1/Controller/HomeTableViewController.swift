@@ -7,30 +7,23 @@
 //
 
 import UIKit
+import MapKit
 import SwiftyStarRatingView
 import Firebase
 
-class HomeTableViewController: UITableViewController,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,selectCity {
+class HomeTableViewController: UITableViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, CLLocationManagerDelegate, selectCity {
+    
     
     @IBOutlet weak var whereToBtnOutlet: UIButton!
+    @IBOutlet var homeTableView: UITableView!
     @IBOutlet weak var categoryCollView: UICollectionView!
     @IBOutlet weak var recommendCollView: UICollectionView!
     @IBOutlet weak var nearbyCollView: UICollectionView!
     
+    var locationManager = CLLocationManager()
+    var nearbyPlaces: [Place] = []
     
-    let nearbyPlaces: [Place] = [
-        Place(name: "Mercure Elforsan Hotel", phone: "", address: "", category: "Hotels in", town: "Ismailia", image: "Mercure.jpg", rate: 4.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
-        Place(name: "Tolip Elforsan Hotel", phone: "", address: "", category: "Hotels in", town: "Ismailia", image: "Tolip Elforsan.jpg", rate: 3.5, prices: 0, coordinates: [], imageData: .init(), placeId: "")
-    ]
-    
-    let recommendPlaces: [Place] = [
-        Place(name: "Quad Biking", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Quad Biking", rate: 4.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
-        Place(name: "Diving", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Diving", rate: 5.0, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
-        Place(name: "Visit Old Market", phone: "", address: "", category: "Things to Do in", town: "Sharm El Shiekh", image: "Old Market", rate: 3.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
-        Place(name: "Concord El Salam Hotel", phone: "", address: "", category: "Hotels in", town: "Sharm El Shiekh", image: "concorde-el-salam-hotel", rate: 4.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
-        Place(name: "Lagona Village Hotel", phone: "", address: "", category: "Hotels in", town: "Dahab", image: "hotel-lagona-village", rate: 3.5, prices: 0, coordinates: [], imageData: .init(), placeId: ""),
-        Place(name: "Tirana Dahab Resort", phone: "", address: "", category: "Hotels in", town: "Dahab", image: "Tirana Dahab Resort", rate: 4.0, prices: 0, coordinates: [], imageData: .init(), placeId: "")
-    ]
+    let recommendPlaces: [Place] = []
     
     let categoryImgArr = ["Ticket2-2.png","Mountain.png","Hotel2-1.png","Restaurant-1.png"]
     let categoryArr = ["Things to Do","Attractions","Hotels","Restaurants"]
@@ -45,7 +38,20 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         whereToBtnOutlet.layer.cornerRadius = whereToBtnOutlet.frame.width/5.8
-        //insertData()
+        
+        if configureLocationServices() == true {
+            locationManager.delegate = self;
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            
+            if let userLocation = locationManager.location?.coordinate {
+                let userCoordinates = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+                readNearbyData(userCoordinates: userCoordinates, completion: {(nearbyPlaces) in
+                    self.nearbyPlaces =  nearbyPlaces
+                    self.homeTableView.reloadData()
+                    self.nearbyCollView.reloadData()
+                })
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -155,11 +161,54 @@ class HomeTableViewController: UITableViewController,UICollectionViewDataSource,
         citiesTVC.delegate = self
         self.present(citiesTVC, animated: true, completion: nil)
     }
+    
     @IBAction func deselectCityBtn(_ sender: Any) {
         whereToBtnOutlet.setTitle("Where to?", for: .normal)
     }
     
+    func configureLocationServices() -> Bool{
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedAlways || status == .authorizedWhenInUse{
+            return true
+        }
+        locationManager.requestAlwaysAuthorization()
+        return false
+    }
     
+    func readNearbyData(userCoordinates: CLLocation, completion: @escaping (_ data: [Place]) -> ()){
+        
+        var nearbyPlaces : [Place] = []
+        let db = Firestore.firestore()
+        db.collection("Places").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    for document in querySnapshot!.documents {
+                        let docData = document.data()
+                        
+                        let coordinates : [Double] = docData["coordinates"]! as! [Double]
+                        let destination = CLLocation(latitude:coordinates[0],longitude:coordinates[1])
+                        let distance = userCoordinates.distance(from: destination)
+                        if distance <= 16093.4 {
+                            nearbyPlaces.append(Place(name: docData["name"]! as! String,
+                                                phone: docData["phone"]! as! String,
+                                                address: docData["address"]! as! String,
+                                                category: docData["category"]! as! String,
+                                                town: docData["town"]! as! String,
+                                                image: docData["image"]! as! String,
+                                                rate: docData["rate"]! as! NSNumber ,
+                                                prices: docData["prices"]! as! NSNumber,
+                                                coordinates: docData["coordinates"]! as! [NSNumber],
+                                                imageData: .init(),
+                                                placeId: docData["pid"]! as! String))
+                        }
+                    }
+                    //return places data
+                    completion(nearbyPlaces)
+                }
+        }
+        
+    }
     // MARK: - Table view data source
     
 }

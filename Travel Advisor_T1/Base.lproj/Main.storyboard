@@ -39,7 +39,7 @@
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <view userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0AH-cM-RhN" customClass="SwiftyStarRatingView" customModule="SwiftyStarRatingView">
-                                            <rect key="frame" x="15.5" y="266.5" width="70" height="13"/>
+                                            <rect key="frame" x="19" y="266.5" width="70" height="13"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="tintColor" red="0.14578765630722046" green="0.47038698196411133" blue="0.31749197840690613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
@@ -69,7 +69,7 @@
                                         <constraint firstAttribute="trailing" secondItem="SoM-UC-0fK" secondAttribute="trailing" constant="15" id="b73-RF-goG"/>
                                         <constraint firstItem="0AH-cM-RhN" firstAttribute="top" secondItem="mHG-dQ-bjS" secondAttribute="bottom" constant="-5" id="bN2-44-oPK"/>
                                         <constraint firstItem="mHG-dQ-bjS" firstAttribute="top" secondItem="SoM-UC-0fK" secondAttribute="bottom" id="o2x-85-giR"/>
-                                        <constraint firstItem="0AH-cM-RhN" firstAttribute="leading" secondItem="9vX-Tb-843" secondAttribute="leadingMargin" constant="-0.5" id="oLA-4s-Jhp"/>
+                                        <constraint firstItem="0AH-cM-RhN" firstAttribute="leading" secondItem="9vX-Tb-843" secondAttribute="leadingMargin" constant="3" id="oLA-4s-Jhp"/>
                                         <constraint firstAttribute="bottom" secondItem="0AH-cM-RhN" secondAttribute="bottom" constant="15" id="oST-Pr-S1F"/>
                                         <constraint firstAttribute="trailing" secondItem="mHG-dQ-bjS" secondAttribute="trailing" constant="16" id="wkl-C1-aSo"/>
                                     </constraints>
@@ -1555,7 +1555,7 @@
                                                         <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="201" id="yl6-w0-bcF"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="18.5"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Wn3-n1-Q92">
@@ -1698,6 +1698,7 @@
                     <navigationItem key="navigationItem" title="Travel Buddy" id="tBJ-nH-f1Z"/>
                     <connections>
                         <outlet property="categoryCollView" destination="9lI-pf-bpI" id="10C-8F-ZZy"/>
+                        <outlet property="homeTableView" destination="xox-W4-ihG" id="5Ye-Ha-sE6"/>
                         <outlet property="nearbyCollView" destination="SYs-zl-4FD" id="ZMw-qn-dVM"/>
                         <outlet property="recommendCollView" destination="Wn3-n1-Q92" id="MGD-e8-tuo"/>
                         <outlet property="whereToBtnOutlet" destination="DWz-dK-FLI" id="fhV-cF-xSV"/>
