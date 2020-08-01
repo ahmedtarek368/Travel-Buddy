@@ -22,29 +22,31 @@ class HomeTableViewController: UITableViewController, UICollectionViewDataSource
     
     var locationManager = CLLocationManager()
     var nearbyPlaces: [Place] = []
-    
     let recommendPlaces: [Place] = []
     
     let categoryImgArr = ["Ticket2-2.png","Mountain.png","Hotel2-1.png","Restaurant-1.png"]
     let categoryArr = ["Things to Do","Attractions","Hotels","Restaurants"]
     
-    override func viewWillAppear(_ animated: Bool) {
-        let backButton = UIBarButtonItem(title: "HOME", style: .plain, target: nil, action:nil)
-        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
-        self.navigationController?.navigationBar.prefersLargeTitles = false
-        
+    override func viewDidLayoutSubviews() {
+        whereToBtnOutlet.layer.cornerRadius = whereToBtnOutlet.frame.height/2
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        whereToBtnOutlet.layer.cornerRadius = whereToBtnOutlet.frame.width/5.8
+        let backButton = UIBarButtonItem(title: "HOME", style: .plain, target: nil, action:nil)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+        self.navigationController?.navigationBar.prefersLargeTitles = false
+        
+        locationManager.delegate = self;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
         
         if configureLocationServices() == true {
-            locationManager.delegate = self;
-            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            let userLocation = locationManager.location?.coordinate
             
-            if let userLocation = locationManager.location?.coordinate {
-                let userCoordinates = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
+            if userLocation != nil {
+                print(userLocation!)
+                let userCoordinates = CLLocation(latitude: userLocation!.latitude, longitude: userLocation!.longitude)
                 readNearbyData(userCoordinates: userCoordinates, completion: {(nearbyPlaces) in
                     self.nearbyPlaces =  nearbyPlaces
                     self.homeTableView.reloadData()
@@ -52,6 +54,11 @@ class HomeTableViewController: UITableViewController, UICollectionViewDataSource
                 })
             }
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locationManager.location?.coordinate
+        print(location!)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -207,7 +214,6 @@ class HomeTableViewController: UITableViewController, UICollectionViewDataSource
                     completion(nearbyPlaces)
                 }
         }
-        
     }
     // MARK: - Table view data source
     
